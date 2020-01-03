@@ -39,6 +39,41 @@ namespace StringBasicsMetods
             Console.WriteLine(substrFrom5);
             Console.WriteLine(substrFrom0to3);
         }
+        static void FormatStr() // форматирование строк
+        {
+            string name = "John";
+            int age = 30;
+            string str1 = string.Format("My name is {0} and i`m {1}", name, age);
+
+            string str2 = $"My name is {name} and i`m {age}"; // $ - интерпалирование строк
+
+            str2 = $"My name is {Environment.NewLine}{name}"; // перевод строки раьотающий одинаково для разных систем.
+
+            //string str2 = "My name is " + name + "and i`m " + age;
+
+            //Console.WriteLine(str2);
+
+            int answer = 42;
+            string result = string.Format("{0:d}", answer);
+            Console.WriteLine(result);
+            string result2 = string.Format("{0:d4}", answer); // вывод 4х символов дополняет слева нулями если число меньше 4х символов
+            Console.WriteLine(result2);
+
+            double answer2 = 43.08;
+            string result3 = string.Format("{0:f}", answer);
+            Console.WriteLine(result3);
+            string result4 = string.Format("{0:f4}", answer); // вывод 4х символов после запятой. Так же производит округление.
+            Console.WriteLine(result4);
+
+            Console.OutputEncoding = Encoding.UTF8;
+
+            double money = 12.5;
+
+            result = String.Format("{0:C}", money); // форматированый вывод в денежном формате
+            result2 = String.Format("{0:C2}", money);
+            Console.WriteLine(money.ToString("C2")); // такая запись более приемлимая string.format почти не используют
+            Console.WriteLine(result2);
+        }       
         static void StringEmpty()
         {
             string str = string.Empty; // эквивалентно  string empty = "";
@@ -120,8 +155,9 @@ namespace StringBasicsMetods
         }
         static void StringBuilder()
         {
-            // можно модифицировать в отличии от string где только присвоение. 
-            StringBuilder sb = new StringBuilder(); // работает более оптимизированнок к памяти чем любая конкатенация
+            // можно модифицировать в отличии от string где только присвоение.
+             // самый выстрый способ складывания строк
+            StringBuilder sb = new StringBuilder(); // работает более оптимизированно к памяти чем любая конкатенация
             sb.Append("My "); // добавление к строке
             sb.Append("name ");
             sb.Append("is ");
