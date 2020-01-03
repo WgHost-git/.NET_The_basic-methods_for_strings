@@ -1,2 +1,2 @@
-# .NET_The_basic-methods_for_strings
-Базовые методы строк (string)
+
+##### Базовые методы строк (string)
